@@ -1,5 +1,4 @@
  - log4j 教程
-   - [主页](index.md)
    - [概述](overview.md)
    - [安装](installation.md)
    - [架构](architecture.md)

@@ -1,20 +1,15 @@
 # Log4j
 
-官方英文原版：   
- http://www.tutorialspoint.com/log4j/log4j_quick_guide.htm
+log4j 是一个使用 Java 语言编写的，可靠、快速、灵活的日志框架（API），使用 Apache Software License 授权。log4j 是一个使用 Java 语言编写的流行类库，它被移植到 C、C++、C#、Perl、Python、Ruby 和 Eiffel 语言中。
 
-## 目的
+## 适用人群
 
-翻译官方文档，目录见文件 [TOC.md](TOC.md)
+该教程适用于初学者，帮助他们掌握 log4j 的基本功能。
 
-## 操作示例
+## 学习前提
 
-https://github.com/jikexueyuanwiki/guide
+在很多使用 Java 编写的应用中，都会用到 log4j，因此，读者对 Java 编程语言要有良好的掌握。
 
-## 如何添加图片
-
-前提：官网上的所有图片都已经下载下来放入「images」文件夹，图片的文件名没做任何修改。
-
-1、请引用「images」文件夹中的图片，不要直接引用官方上的图片链接；    
-2、引用「images」文件夹时，请使用相对文件路径。
-
+|更新日期    |更新内容
+|----------|--------------------
+|2015-05-19|Log4j 中文版
