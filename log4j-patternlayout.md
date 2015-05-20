@@ -1,8 +1,8 @@
 # PatternLayout
 
-如果您希望基于某种模式生成特定格式的日志信息，可使用 `org.apache.log4j.PatternLayout` 格式化您的日志信息。
+如果您希望基于某种模式生成特定格式的日志信息，可使用 `org.apache.Log4j.PatternLayout` 格式化您的日志信息。
 
-`PatternLayout` 继承自抽象类 `org.apache.log4j.Layout`，覆盖了其 `format()` 方法，通过提供的模式，来格式化日志信息。
+`PatternLayout` 继承自抽象类 `org.apache.Log4j.Layout`，覆盖了其 `format()` 方法，通过提供的模式，来格式化日志信息。
 
 `PatternLayout` 是一个简单的 `Layout` 对象，提供了如下属性，该属性可通过配置文件更改：
 
@@ -146,30 +146,30 @@
 
 ```
 # Define the root logger with appender file
-log = /usr/home/log4j
-log4j.rootLogger = DEBUG, FILE
+log = /usr/home/Log4j
+Log4j.rootLogger = DEBUG, FILE
 
 # Define the file appender
-log4j.appender.FILE=org.apache.log4j.FileAppender
-log4j.appender.FILE.File=${log}/log.out
+Log4j.appender.FILE=org.apache.Log4j.FileAppender
+Log4j.appender.FILE.File=${log}/log.out
 
 # Define the layout for file appender
-log4j.appender.FILE.layout=org.apache.log4j.PatternLayout
-log4j.appender.FILE.layout.ConversionPattern=%d{yyyy-MM-dd}-%t-%x-%-5p-%-10c:%m%n
+Log4j.appender.FILE.layout=org.apache.Log4j.PatternLayout
+Log4j.appender.FILE.layout.ConversionPattern=%d{yyyy-MM-dd}-%t-%x-%-5p-%-10c:%m%n
 ```
 
 下面是生成日志信息的 Java 程序：
 
 ```
-import org.apache.log4j.Logger;
+import org.apache.Log4j.Logger;
 
 import java.io.*;
 import java.sql.SQLException;
 import java.util.*;
 
-public class log4jExample{
+public class Log4jExample{
    /* Get actual class name to be printed on */
-   static Logger log = Logger.getLogger(log4jExample.class.getName());
+   static Logger log = Logger.getLogger(Log4jExample.class.getName());
    
    public static void main(String[] args)throws IOException,SQLException{
       log.debug("Hello this is an debug message");
@@ -178,9 +178,9 @@ public class log4jExample{
 }
 ```
 
-编译并运行上述程序，会在目录 `/usr/home/log4j` 下生成一个名为 `log.out` 的文件，该文件包含如下日志信息：
+编译并运行上述程序，会在目录 `/usr/home/Log4j` 下生成一个名为 `log.out` 的文件，该文件包含如下日志信息：
 
 ```
-2010-03-23-main--DEBUG-log4jExample:Hello this is an debug message
-2010-03-23-main--INFO -log4jExample:Hello this is an info message
+2010-03-23-main--DEBUG-Log4jExample:Hello this is an debug message
+2010-03-23-main--INFO -Log4jExample:Hello this is an info message
 ```

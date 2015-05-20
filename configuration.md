@@ -1,51 +1,51 @@
 # 配置
 
-上一章解释了 log4j 的核心组件。本章讲述如何使用配置文件来配置核心组件。log4j 的配置包括在配置文件中指定 Level、定义 Appender 和指明 Layout。
+上一章解释了 Log4j 的核心组件。本章讲述如何使用配置文件来配置核心组件。Log4j 的配置包括在配置文件中指定 Level、定义 Appender 和指明 Layout。
 
-**log4j.properties** 文件是 log4j 的配置文件，属性以键值对的形式定义。默认情况下，LogManager 会在 **CLASSPATH** 中寻找 **log4j.properties** 文件。
+**Log4j.properties** 文件是 Log4j 的配置文件，属性以键值对的形式定义。默认情况下，LogManager 会在 **CLASSPATH** 中寻找 **Log4j.properties** 文件。
 
 - 根日志的级别定义为 **DEBUG**，并将名为 X 的 appender 添加其上。
 - 将名为 X 的 appender 设置为合法的 appender。
 - 设置 appender X 的 layout。
 
-## log4j.properties 的语法
+## Log4j.properties 的语法
 
-为 appender X 定义的 *log4j.properties* 的语法如下：
+为 appender X 定义的 *Log4j.properties* 的语法如下：
 
 ```
 # Define the root logger with appender X
-log4j.rootLogger = DEBUG, X
+Log4j.rootLogger = DEBUG, X
 
 # Set the appender named X to be a File appender
-log4j.appender.X=org.apache.log4j.FileAppender
+Log4j.appender.X=org.apache.Log4j.FileAppender
 
 # Define the layout for X appender
-log4j.appender.X.layout=org.apache.log4j.PatternLayout
-log4j.appender.X.layout.conversionPattern=%m%n
+Log4j.appender.X.layout=org.apache.Log4j.PatternLayout
+Log4j.appender.X.layout.conversionPattern=%m%n
 ```
 
-## log4j.properties 示例
+## Log4j.properties 示例
 
-使用上述语法，我们在 **log4j.properties** 定义如下属性：
+使用上述语法，我们在 **Log4j.properties** 定义如下属性：
 
 - 定义根日志级别为 **DEBUG**，并将名为 **FILE** 的 appender 添加其上。
-- appender **FILE** 定义为 **org.apache.log4j.FileAppender**，它将日志写入 **log** 目录下一个名为 **log.out** 的文件中。
+- appender **FILE** 定义为 **org.apache.Log4j.FileAppender**，它将日志写入 **log** 目录下一个名为 **log.out** 的文件中。
 - layout 被定义为 *%m%n*，即打印出来的日志信息末尾加入换行。
 
 ```
 # Define the root logger with appender file
-log4j.rootLogger = DEBUG, FILE
+Log4j.rootLogger = DEBUG, FILE
 
 # Define the file appender
-log4j.appender.FILE=org.apache.log4j.FileAppender
-log4j.appender.FILE.File=${log}/log.out
+Log4j.appender.FILE=org.apache.Log4j.FileAppender
+Log4j.appender.FILE.File=${log}/log.out
 
 # Define the layout for file appender
-log4j.appender.FILE.layout=org.apache.log4j.PatternLayout
-log4j.appender.FILE.layout.conversionPattern=%m%n
+Log4j.appender.FILE.layout=org.apache.Log4j.PatternLayout
+Log4j.appender.FILE.layout.conversionPattern=%m%n
 ```
 
-值得注意的是，log4j 支持 Unix 风格的变量替换，比如 ${variableName}。
+值得注意的是，Log4j 支持 Unix 风格的变量替换，比如 ${variableName}。
 
 ## DEBUG 级别
 
@@ -63,7 +63,7 @@ log4j.appender.FILE.layout.conversionPattern=%m%n
 
 ## Appender
 
-Apache log4j 提供的 Appender 对象主要负责将日志信息打印至不同目的地，比如控制台、文件、网络套接字、NT 事件日志等。
+Apache Log4j 提供的 Appender 对象主要负责将日志信息打印至不同目的地，比如控制台、文件、网络套接字、NT 事件日志等。
 
 每个 Appender 对象都有不同的属性，这些属性决定了该对象的行为。
 
@@ -97,13 +97,13 @@ Apache log4j 提供的 Appender 对象主要负责将日志信息打印至不同
 通过在配置文件中使用如下方法，将 Appender 对象添加至 Logger 对象：
 
 ```
-log4j.logger.[logger-name]=level, appender1,appender..n
+Log4j.logger.[logger-name]=level, appender1,appender..n
 ```
 
 也可以在 XML 中定义同样的配置：
 
 ```
-<logger name="com.apress.logging.log4j" additivity="false">
+<logger name="com.apress.logging.Log4j" additivity="false">
    <appender-ref ref="appender1"/>
    <appender-ref ref="appender2"/>
 </logger>

@@ -1,6 +1,6 @@
 # 使用文件记录日志
 
-使用 `org.apache.log4j.FileAppender` 将日志记录到文件。
+使用 `org.apache.Log4j.FileAppender` 将日志记录到文件。
 
 ## FileAppender 配置
 
@@ -41,57 +41,57 @@ FileAppender 拥有如下配置参数：
 </tr>
 </tbody></table>
 
-下面是一个使用 FileAppender 的示例配置文件 **log4j.properties**：
+下面是一个使用 FileAppender 的示例配置文件 **Log4j.properties**：
 
 ```
 # Define the root logger with appender file
-log4j.rootLogger = DEBUG, FILE
+Log4j.rootLogger = DEBUG, FILE
 
 # Define the file appender
-log4j.appender.FILE=org.apache.log4j.FileAppender
+Log4j.appender.FILE=org.apache.Log4j.FileAppender
 
 # Set the name of the file
-log4j.appender.FILE.File=${log}/log.out
+Log4j.appender.FILE.File=${log}/log.out
 
 # Set the immediate flush to true (default)
-log4j.appender.FILE.ImmediateFlush=true
+Log4j.appender.FILE.ImmediateFlush=true
 
 # Set the threshold to debug mode
-log4j.appender.FILE.Threshold=debug
+Log4j.appender.FILE.Threshold=debug
 
 # Set the append to false, overwrite
-log4j.appender.FILE.Append=false
+Log4j.appender.FILE.Append=false
 
 # Define the layout for file appender
-log4j.appender.FILE.layout=org.apache.log4j.PatternLayout
-log4j.appender.FILE.layout.conversionPattern=%m%n
+Log4j.appender.FILE.layout=org.apache.Log4j.PatternLayout
+Log4j.appender.FILE.layout.conversionPattern=%m%n
 ```
 
-如果您需要一个和 **log4j.properties** 文件功能类似的 XML 配置文件，如下所示：
+如果您需要一个和 **Log4j.properties** 文件功能类似的 XML 配置文件，如下所示：
 
 ```
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
-<log4j:configuration>
+<!DOCTYPE Log4j:configuration SYSTEM "Log4j.dtd">
+<Log4j:configuration>
 
-<appender name="FILE" class="org.apache.log4j.FileAppender">
+<appender name="FILE" class="org.apache.Log4j.FileAppender">
 
    <param name="file" value="${log}/log.out"/>
    <param name="immediateFlush" value="true"/>
    <param name="threshold" value="debug"/>
    <param name="append" value="false"/>
    
-   <layout class="org.apache.log4j.PatternLayout">
+   <layout class="org.apache.Log4j.PatternLayout">
       <param name="conversionPattern" value="%m%n"/>
    </layout>
 </appender>
 
-<logger name="log4j.rootLogger" additivity="false">
+<logger name="Log4j.rootLogger" additivity="false">
    <level value="DEBUG"/>
    <appender-ref ref="FILE"/>
 </logger>
 
-</log4j:configuration>
+</Log4j:configuration>
 ```
 
 您可以使用上述配置尝试[示例程序](sample-program.md)一章中的例子。
@@ -100,7 +100,7 @@ log4j.appender.FILE.layout.conversionPattern=%m%n
 
 您可能因为某些原因，需要将日志写入多个文件，比如当文件大小达到一定阀值时。
 
-为了将日志写入多个文件，您需要使用 `org.apache.log4j.RollingFileAppender`，该类继承了 `FileAppender` 类，继承了它的所有属性。
+为了将日志写入多个文件，您需要使用 `org.apache.Log4j.RollingFileAppender`，该类继承了 `FileAppender` 类，继承了它的所有属性。
 
 除了上述提到的 `FileAppender` 类的属性，该类还包括如下可配置的属性：
 
@@ -119,36 +119,36 @@ log4j.appender.FILE.layout.conversionPattern=%m%n
 </tr>
 </tbody></table>
 
-下面是为 `RollingFileAppender` 定义的示例配置文件 **log4j.properties**：
+下面是为 `RollingFileAppender` 定义的示例配置文件 **Log4j.properties**：
 
 ```
 # Define the root logger with appender file
-log4j.rootLogger = DEBUG, FILE
+Log4j.rootLogger = DEBUG, FILE
 
 # Define the file appender
-log4j.appender.FILE=org.apache.log4j.RollingFileAppender
+Log4j.appender.FILE=org.apache.Log4j.RollingFileAppender
 
 # Set the name of the file
-log4j.appender.FILE.File=${log}/log.out
+Log4j.appender.FILE.File=${log}/log.out
 
 # Set the immediate flush to true (default)
-log4j.appender.FILE.ImmediateFlush=true
+Log4j.appender.FILE.ImmediateFlush=true
 
 # Set the threshold to debug mode
-log4j.appender.FILE.Threshold=debug
+Log4j.appender.FILE.Threshold=debug
 
 # Set the append to false, should not overwrite
-log4j.appender.FILE.Append=true
+Log4j.appender.FILE.Append=true
 
 # Set the maximum file size before rollover
-log4j.appender.FILE.MaxFileSize=5KB
+Log4j.appender.FILE.MaxFileSize=5KB
 
 # Set the the backup index
-log4j.appender.FILE.MaxBackupIndex=2
+Log4j.appender.FILE.MaxBackupIndex=2
 
 # Define the layout for file appender
-log4j.appender.FILE.layout=org.apache.log4j.PatternLayout
-log4j.appender.FILE.layout.conversionPattern=%m%n
+Log4j.appender.FILE.layout=org.apache.Log4j.PatternLayout
+Log4j.appender.FILE.layout.conversionPattern=%m%n
 ```
 
 如果您想使用 XML 配置文件，可以像上一节一样生成 XML 配置文件，只需添加和 `RollingFileAppender` 相关的配置即可。
@@ -161,7 +161,7 @@ log4j.appender.FILE.layout.conversionPattern=%m%n
 
 您也许需要逐日生成日志文件，以此更加整洁的记录日志信息。
 
-为了逐日生成日志文件，需要使用 `org.apache.log4j.DailyRollingFileAppender`，，该类继承了 `FileAppender` 类，继承了它的所有属性。
+为了逐日生成日志文件，需要使用 `org.apache.Log4j.DailyRollingFileAppender`，，该类继承了 `FileAppender` 类，继承了它的所有属性。
 
 除了上述提到的 `FileAppender` 类的属性，该类多包含了一个重要属性：
 
@@ -209,33 +209,33 @@ log4j.appender.FILE.layout.conversionPattern=%m%n
 </tr>
 </tbody></table>
 
-下述 **log4j.properties** 示例文件产生的日志文件在每天中午和午夜回滚：
+下述 **Log4j.properties** 示例文件产生的日志文件在每天中午和午夜回滚：
 
 ```
 # Define the root logger with appender file
-log4j.rootLogger = DEBUG, FILE
+Log4j.rootLogger = DEBUG, FILE
 
 # Define the file appender
-log4j.appender.FILE=org.apache.log4j.DailyRollingFileAppender
+Log4j.appender.FILE=org.apache.Log4j.DailyRollingFileAppender
 
 # Set the name of the file
-log4j.appender.FILE.File=${log}/log.out
+Log4j.appender.FILE.File=${log}/log.out
 
 # Set the immediate flush to true (default)
-log4j.appender.FILE.ImmediateFlush=true
+Log4j.appender.FILE.ImmediateFlush=true
 
 # Set the threshold to debug mode
-log4j.appender.FILE.Threshold=debug
+Log4j.appender.FILE.Threshold=debug
 
 # Set the append to false, should not overwrite
-log4j.appender.FILE.Append=true
+Log4j.appender.FILE.Append=true
 
 # Set the DatePattern
-log4j.appender.FILE.DatePattern='.' yyyy-MM-dd-a
+Log4j.appender.FILE.DatePattern='.' yyyy-MM-dd-a
 
 # Define the layout for file appender
-log4j.appender.FILE.layout=org.apache.log4j.PatternLayout
-log4j.appender.FILE.layout.conversionPattern=%m%n
+Log4j.appender.FILE.layout=org.apache.Log4j.PatternLayout
+Log4j.appender.FILE.layout.conversionPattern=%m%n
 ``` 
 
 如果您想使用 XML 配置文件，可以像上一节一样生成 XML 配置文件，只需添加和 `DailyRollingFileAppender` 相关的配置即可。

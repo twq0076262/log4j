@@ -1,18 +1,18 @@
 # 日志格式
 
-Apache log4j 提供了多个 `Layout` 对象，每个根据布局的不同都可格式化日志数据。还可以创建一个 `Layout` 对象，以应用特有的方式格式化日志。
+Apache Log4j 提供了多个 `Layout` 对象，每个根据布局的不同都可格式化日志数据。还可以创建一个 `Layout` 对象，以应用特有的方式格式化日志。
 
 所有 `Layout` 对象从 `Appender` 对象那里接收一个 `LoggingEvent ` 对象，然后从 `LoggingEvent ` 对象那里获取信息，并使用恰当的 `ObjectRenderer` 对象获取该信息的字符串形式。
 
 ## Layout 类型
 
-位于继承关系顶层的是抽象类 `org.apache.log4j.Layout`，这是所有 log4j API 中 `Layout` 类的基类。
+位于继承关系顶层的是抽象类 `org.apache.Log4j.Layout`，这是所有 Log4j API 中 `Layout` 类的基类。
 
 `Layout` 类是个抽象类，在应用中我们从不直接使用该类，而是使用它的子类，如下所示：
 
 - DateLayout
-- [HTMLLayout](log4j-htmllayout.md)
-- [PatternLayout](log4j-patternlayout.md)
+- [HTMLLayout](Log4j-htmllayout.md)
+- [PatternLayout](Log4j-patternlayout.md)
 - SimpleLayout
 - XMLLayout
 

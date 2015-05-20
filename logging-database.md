@@ -1,6 +1,6 @@
 # 使用数据库记录日志
 
-log4j API 提供了 `org.apache.log4j.jdbc.JDBCAppender` 对象，该对象可将日志信息记录到特定的数据库之中。
+Log4j API 提供了 `org.apache.Log4j.jdbc.JDBCAppender` 对象，该对象可将日志信息记录到特定的数据库之中。
 
 ## JDBCAppender 配置
 
@@ -19,7 +19,7 @@ log4j API 提供了 `org.apache.log4j.jdbc.JDBCAppender` 对象，该对象可�
 </tr>
 <tr>
 <td>layout</td>
-<td>设置 layout，缺省为 <b>org.apache.log4j.PatternLayout</b>。</td>
+<td>设置 layout，缺省为 <b>org.apache.Log4j.PatternLayout</b>。</td>
 </tr>
 <tr>
 <td>password</td>
@@ -55,75 +55,75 @@ CREATE TABLE LOGS
 
 ## 示例配置文件
 
-下面是一个为 `JDBCAppender` 编写的 **log4j.properties** 的示例配置文件，使用该对象将日志信息记录到 LOGS 表中。
+下面是一个为 `JDBCAppender` 编写的 **Log4j.properties** 的示例配置文件，使用该对象将日志信息记录到 LOGS 表中。
 
 ```
 # Define the root logger with appender file
-log4j.rootLogger = DEBUG, DB
+Log4j.rootLogger = DEBUG, DB
 
 # Define the DB appender
-log4j.appender.DB=org.apache.log4j.jdbc.JDBCAppender
+Log4j.appender.DB=org.apache.Log4j.jdbc.JDBCAppender
 
 # Set JDBC URL
-log4j.appender.DB.URL=jdbc:mysql://localhost/DBNAME
+Log4j.appender.DB.URL=jdbc:mysql://localhost/DBNAME
 
 # Set Database Driver
-log4j.appender.DB.driver=com.mysql.jdbc.Driver
+Log4j.appender.DB.driver=com.mysql.jdbc.Driver
 
 # Set database user name and password
-log4j.appender.DB.user=user_name
-log4j.appender.DB.password=password
+Log4j.appender.DB.user=user_name
+Log4j.appender.DB.password=password
 
 # Set the SQL statement to be executed.
-log4j.appender.DB.sql=INSERT INTO LOGS VALUES('%x','%d','%C','%p','%m')
+Log4j.appender.DB.sql=INSERT INTO LOGS VALUES('%x','%d','%C','%p','%m')
 
 # Define the layout for file appender
-log4j.appender.DB.layout=org.apache.log4j.PatternLayout
+Log4j.appender.DB.layout=org.apache.Log4j.PatternLayout
 ```
 
 如果使用 MySQL 数据库，需要使用真实的 DBNAME、用户名和密码，就是刚才用来创建 LOGS 表的那些属性。SQL 语句执行 INSERT 语句，为 LOGS 表插入具体数值。
 
 `JDBCAppender` 不需要显示定义 layout，传入的 SQL 语句会使用 `PatternLayout`。
 
-如果您需要和上述 **log4j.properties** 文件等价的 XML 配置文件，如下所示：
+如果您需要和上述 **Log4j.properties** 文件等价的 XML 配置文件，如下所示：
 
 ```
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
-<log4j:configuration>
+<!DOCTYPE Log4j:configuration SYSTEM "Log4j.dtd">
+<Log4j:configuration>
 
-<appender name="DB" class="org.apache.log4j.jdbc.JDBCAppender">
+<appender name="DB" class="org.apache.Log4j.jdbc.JDBCAppender">
    <param name="url" value="jdbc:mysql://localhost/DBNAME"/>
    <param name="driver" value="com.mysql.jdbc.Driver"/>
    <param name="user" value="user_id"/>
    <param name="password" value="password"/>
    <param name="sql" value="INSERT INTO LOGS VALUES('%x','%d','%C','%p','%m')"/>
    
-   <layout class="org.apache.log4j.PatternLayout">
+   <layout class="org.apache.Log4j.PatternLayout">
    </layout>
 </appender>
 
-<logger name="log4j.rootLogger" additivity="false">
+<logger name="Log4j.rootLogger" additivity="false">
    <level value="DEBUG"/>
    <appender-ref ref="DB"/>
 </logger>
 
-</log4j:configuration>
+</Log4j:configuration>
 ```
 
 ## 示例程序
 
-下述 Java 类是一个非常简单的例子，该类在 Java 应用中初始化并使用了 Log4J 类库。
+下述 Java 类是一个非常简单的例子，该类在 Java 应用中初始化并使用了 Log4j 类库。
 
 ```
-import org.apache.log4j.Logger;
+import org.apache.Log4j.Logger;
 import java.sql.*;
 import java.io.*;
 import java.util.*;
 
-public class log4jExample{
+public class Log4jExample{
    /* Get actual class name to be printed on */
-   static Logger log = Logger.getLogger(log4jExample.class.getName());
+   static Logger log = Logger.getLogger(Log4jExample.class.getName());
    
    public static void main(String[] args)throws IOException,SQLException{
       log.debug("Debug");
@@ -134,11 +134,11 @@ public class log4jExample{
 
 编译和运行上述程序的步骤如下。在继续编译和运行程序之前，确保正确设置了 **PATH** 和 **CLASSPATH**。
 
-所有的类库都需要包含在 **CLASSPATH** 中，*log4j.properties* 文件需要包含在 **PATH** 中，步骤如下：
+所有的类库都需要包含在 **CLASSPATH** 中，*Log4j.properties* 文件需要包含在 **PATH** 中，步骤如下：
 
-- 创建如上所示的 log4j.properties 文件。
-- 创建如上所示的 log4jExample.java 文件并编译。
-- 运行 log4jExample。
+- 创建如上所示的 Log4j.properties 文件。
+- 创建如上所示的 Log4jExample.java 文件并编译。
+- 运行 Log4jExample。
 
 现在检查 DBNAME 数据库中的 LOGS 表，会发现如下条目：
 
@@ -147,9 +147,9 @@ mysql >  select * from LOGS;
 +---------+------------+--------------+-------+---------+
 | USER_ID | DATED      | LOGGER       | LEVEL | MESSAGE |
 +---------+------------+--------------+-------+---------+
-|         | 2010-05-13 | log4jExample | DEBUG | Debug   |
-|         | 2010-05-13 | log4jExample | INFO  | Info    |
+|         | 2010-05-13 | Log4jExample | DEBUG | Debug   |
+|         | 2010-05-13 | Log4jExample | INFO  | Info    |
 +---------+------------+--------------+-------+---------+
 2 rows in set (0.00 sec)
 ```
-**注意**——这里 x 用来输出和生成日志事件线程相关联的嵌套诊断上下文（NDC），我们使用 NDC 在处理多个客户端的服务器端来区分客户端，具体请查阅 Log4J 手册。
+**注意**——这里 x 用来输出和生成日志事件线程相关联的嵌套诊断上下文（NDC），我们使用 NDC 在处理多个客户端的服务器端来区分客户端，具体请查阅 Log4j 手册。

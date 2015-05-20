@@ -10,7 +10,7 @@ Logger 类提供了很多方法用来处理日志，Logger 类不允许初始化
 其他有名字的 Logger 对象通过传入日志的名字，调用第二个方法获得。日志的名字是传入的任何字符串，通常为类名或包名，如上一章和下面的例子所示：
 
 ```
-static Logger log = Logger.getLogger(log4jExample.class.getName());
+static Logger log = Logger.getLogger(Log4jExample.class.getName());
 ```
 
 ## Logging 方法
@@ -60,13 +60,13 @@ static Logger log = Logger.getLogger(log4jExample.class.getName());
 </tr>
 </tbody></table>
 
-所有级别均在 `org.apache.log4j.Level` 类中定义，这些方法使用如下方式调用：
+所有级别均在 `org.apache.Log4j.Level` 类中定义，这些方法使用如下方式调用：
 
 ```
-import org.apache.log4j.Logger;
+import org.apache.Log4j.Logger;
 
 public class LogClass {
-   private static org.apache.log4j.Logger log = Logger.getLogger(LogClass.class);
+   private static org.apache.Log4j.Logger log = Logger.getLogger(LogClass.class);
    
    public static void main(String[] args) {
    
