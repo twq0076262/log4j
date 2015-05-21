@@ -27,7 +27,7 @@ Layout 对象对于发布日志信息非常重要，它使日志变得可读、�
 
 下图展示了 Log4j 框架中的组件：
 
-![](images/Log4j-arch.jpg)
+![](images/log4j-arch.jpg)
 
 ## 支持对象
 

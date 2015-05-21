@@ -11,8 +11,8 @@ Apache Log4j 提供了多个 `Layout` 对象，每个根据布局的不同都可
 `Layout` 类是个抽象类，在应用中我们从不直接使用该类，而是使用它的子类，如下所示：
 
 - DateLayout
-- [HTMLLayout](Log4j-htmllayout.md)
-- [PatternLayout](Log4j-patternlayout.md)
+- [HTMLLayout](log4j-htmllayout.md)
+- [PatternLayout](log4j-patternlayout.md)
 - SimpleLayout
 - XMLLayout
 

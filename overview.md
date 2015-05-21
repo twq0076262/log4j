@@ -17,7 +17,7 @@ Log4j 主要由三部分组成：
 - 始于 1996 年，作为记录E.U. SEMPER (Secure Electronic Marketplace for Europe)项目跟踪信息的 API。
 - 经过大量的完善和蜕变，最初的 API 终于演进为 Log4j，一个在 Java 社区流行的日志类库。
 - 该类库使用 Apache Software License 授权，该授权是经开源促进协会认证的、完整的开源协议。
-- 最新版本的 Log4j，连同其代码、类文件和文档可通过 [http://logging.apache.org/Log4j/](http://logging.apache.org/Log4j/) 获取。
+- 最新版本的 Log4j，连同其代码、类文件和文档可通过 [http://logging.apache.org/log4j/](http://logging.apache.org/log4j/) 获取。
 
 ## Log4j 的功能
 
